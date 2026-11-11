@@ -44,7 +44,7 @@ app = FastAPI(
 # Resolve project directories
 PROJECT_ROOT = Path(__file__).resolve().parent
 MODELS_DIR = PROJECT_ROOT / "models"
-STATIC_DIR = PROJECT_ROOT / "static"
+STATIC_DIR = PROJECT_ROOT / "staticfront"
 
 # Mount static files to serve the index.html UI
 app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
