@@ -1,6 +1,6 @@
 import io
 from pathlib import Path
-
+import traceback
 from fastapi import FastAPI, File, Form, HTTPException, UploadFile
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
@@ -174,6 +174,7 @@ async def predict_rna_seq(
         )
 
     except Exception as err:
-        raise HTTPException(
+        traceback.print_exc()
+        raise HTTPException(    
             status_code=500, detail=f"Inference error: {str(err)}"
         )
